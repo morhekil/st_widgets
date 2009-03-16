@@ -121,7 +121,7 @@ module StWidgets::FormHelper
     # execute the block
     begin
       concat content_tag(:p, label(object, method, text)+' '+
-                       capture(&block), options), block.binding
+                       capture(&block), options)
     rescue
       content_tag(:p, label(object, method, text)+' '+yield(), options)
     end
