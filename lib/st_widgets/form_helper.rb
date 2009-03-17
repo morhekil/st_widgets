@@ -64,7 +64,7 @@ module StWidgets::FormHelper
     options = { :class => 'buttons' }
     
     if block_given?
-      concat content_tag(:p, submit + capture(&block) + reset, options), block.binding
+      content_tag(:p, submit + capture(&block) + reset, options)
     else
       content_tag(:p, submit + reset, options)
     end
@@ -120,8 +120,8 @@ module StWidgets::FormHelper
     
     # execute the block
     begin
-      concat content_tag(:p, label(object, method, text)+' '+
-                       capture(&block), options)
+      content_tag(:p, label(object, method, text)+' '+
+                      capture(&block), options)
     rescue
       content_tag(:p, label(object, method, text)+' '+yield(), options)
     end
