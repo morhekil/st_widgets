@@ -64,9 +64,9 @@ module StWidgets::FormHelper
     options = { :class => 'buttons' }
     
     if block_given?
-      content_tag(:p, submit + capture(&block) + reset, options)
+      content_tag(:p, "#{submit} #{capture(&block)} #{reset}", options)
     else
-      content_tag(:p, submit + reset, options)
+      c = content_tag(:p, "#{submit} #{reset}", options)
     end
   end
   
